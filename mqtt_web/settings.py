@@ -90,6 +90,11 @@ DATABASES = {
         "PASSWORD": os.environ.get("DATABASE_PASSWORD"),
         "HOST": os.environ.get("DATABASE_HOST", "localhost"),
         "PORT": os.environ.get("DATABASE_PORT", "5432"),
+        "OPTIONS":{
+             {"sslmode": "require"}
+            if os.environ.get("DATABASE_HOST") not in (None, "", "localhost", "127.0.0.1")
+            else {}
+        }
     }
     
 }
