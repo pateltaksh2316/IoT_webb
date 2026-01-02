@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: mqtt-django-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn mqtt_web.wsgi:application"
